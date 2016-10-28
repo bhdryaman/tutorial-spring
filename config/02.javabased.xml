@@ -11,5 +11,16 @@
 			http://www.springframework.org/schema/util
 			http://www.springframework.org/schema/util/spring-util.xsd
         ">
+        
+        <bean id="springAwarenessWriter" class="_02.awareness.SpringAwarenessWriter" />
+        
+		<bean id="lifecycleCreation" class="_02.model.BeanCreationLifecycleWriter" init-method="initTestMethod">
+			<property name="property1" value="test property" />
+		</bean>
+		
+		<bean id="lifecycle" class="_02.model.BeanDestructionLifecycleWriter"
+			destroy-method="testDestroyMethod">
+			<property name="property1" value="myProperty" />
+		</bean>
 
 </beans>

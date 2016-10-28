@@ -12,6 +12,8 @@
 			http://www.springframework.org/schema/util/spring-util.xsd
         ">
         
+	<context:component-scan base-package="_01.model _01.service _01.dao" />
+        
 	<!--
 		Above there are type of elements in xml used by used spring!
 		<bean id="" class="">
@@ -34,6 +36,11 @@
 			<property name="">
 				<props>
 					<prop key=""></prop>
+		<util:set set-class="java.util.TreeSet"/>
+		<util:properties location="classpath:/fileName.properties"/>
+		<util:properties location="file:./src/main/resources/fileName.properties"/>
+		<bean depends-on="beanName" />
+		<bean lazy-init="default" />
 	-->
 	
 	<!-- setter injection -->
@@ -60,8 +67,6 @@
 		<property name="location" value="New York" />
 		<property name="position" value="Software Developer" />
 	</bean>
-	
-	<context:component-scan base-package="_01.model _01.service _01.dao" />
 
 	<util:list id="employeeList">
 		<value>Employye-11</value>

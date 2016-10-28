@@ -10,6 +10,9 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 import _02.configuration.AppConfig;
 import _02.model.Company;
+import _02.model.BeanDestructionLifecycleWriter;
+import _02.model.BeanCreationLifecycleWriter;
+import _02.awareness.SpringAwarenessWriter;
 
 public class Test {
 
@@ -21,7 +24,21 @@ public class Test {
 
 		System.out.println(employee);
 		
+		SpringAwarenessWriter springAwarenessWriter = applicationContext.getBean("springAwarenessWriter", SpringAwarenessWriter.class);
+		
+		springAwarenessWriter.log();
+		
+		BeanCreationLifecycleWriter bean = applicationContext.getBean("lifecycleCreation", BeanCreationLifecycleWriter.class);
+		
+		System.out.println(bean);
+		
+		BeanDestructionLifecycleWriter beanDestruction = applicationContext.getBean("lifecycle", BeanDestructionLifecycleWriter.class);
+
+		System.out.println(beanDestruction);
+		
 		getInstantiatedSigletons(applicationContext);
+		
+		((AnnotationConfigApplicationContext) applicationContext).close();
 
 	}
 	
@@ -36,7 +53,7 @@ public class Test {
              Object s = clbf.getSingleton(name);
              if (s != null && !name.startsWith("org.springframework")){
                  singletons.add(s);
-                 System.out.println("---"+name);
+                 System.out.println("### "+name);
                  System.out.println("\t"+s);
              }
          }
