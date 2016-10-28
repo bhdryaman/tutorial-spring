@@ -3,9 +3,11 @@ package _01.model;
 import java.util.List;
 
 import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service("departmentAnnotation")
+@Component("departmentAnnotation")
 public class Department {
 	
 	private String Name;
