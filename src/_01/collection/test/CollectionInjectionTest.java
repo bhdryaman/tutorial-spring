@@ -7,6 +7,8 @@ import _01.model.Company;
 import _01.model.Department;
 import _01.model.Employee;
 import _01.model.Job;
+import _01.dao.JobDAO;
+import _01.service.JobService;
 
 public class CollectionInjectionTest {
 
@@ -25,6 +27,14 @@ public class CollectionInjectionTest {
 		
 		Employee employeeBean = context.getBean("employeeIdAnnotation", Employee.class);
 		System.out.println(employeeBean);
+		
+		// @Repository
+		JobDAO jobDAOBean = context.getBean("jobDAO",JobDAO.class);
+		System.out.println(jobDAOBean);
+		
+		// @Service
+		JobService jobServiceBean = context.getBean("jobService",JobService.class);
+		System.out.println(jobServiceBean);
 		
 		((ClassPathXmlApplicationContext) context).close();
 

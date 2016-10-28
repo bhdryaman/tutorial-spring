@@ -61,7 +61,7 @@
 		<property name="position" value="Software Developer" />
 	</bean>
 	
-	<context:component-scan base-package="_01.model" />
+	<context:component-scan base-package="_01.model _01.service _01.dao" />
 
 	<util:list id="employeeList">
 		<value>Employye-11</value>
@@ -76,5 +76,42 @@
 		<property name="name" value="#{ConfigWithSpel.companyName}"/>
 		<property name="address" value="#{ConfigWithSpel.address}"/>
 	</bean>
+	
+	<!--
+		BEAN ALIASING
+		<bean id="name1" name="name2 name3,name4;name5" class="xxx.model.Employee"/>
+		
+		<alias name="name1" alias="name6"/>
+		
+		<bean id="employeeSingleton" class="xxx.model.Employee"/> singleton as default
+		
+		<bean id="employeePrototype" class="xxx.model.Employee" scope="prototype"/>
+	-->
+	
+	<!--
+		1)
+		<bean  autowire="byName"/>
+		<bean id="xxxByName"/>
+		The variable name "Class.xxxByName" and and the bean name "xxxByName" should be same!
+		
+		2)
+		<bean autowire="byType"/>
+		<bean id="Xxx.class">
+		<bean id="Xxx.class" autowire-candidate="false">
+		
+		3)
+		<bean autowire="constructor"/>
+		
+		
+		@Autowired
+		@Qualifier(value="")
+		
+		to use the @Autowired
+		the code below should be used in xml file
+		<context:annotation-config/>
+		
+		For stereo types @Component @Repository @Service @Controller
+		<context:component-scan base-package="" />
+	-->
 
 </beans>
