@@ -12,14 +12,6 @@ public class Job {
 	public Job(){
 		
 	}
-	
-	public Job(int id, Company company, String location, String position) {
-		super();
-		this.id = id;
-		this.company = company;
-		this.location = location;
-		this.position = position;
-	}
 
 	public int getId() {
 		return id;
