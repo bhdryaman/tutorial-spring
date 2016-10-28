@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+        	http://www.springframework.org/schema/beans/spring-beans.xsd
+        ">
+        
+	<!--
+		Above there are type of elements in xml used by used spring!
+		<bean id="" class="">
+			<property name="" OR ref="" >
+				<list>
+					<value></value>
+					<ref bean=""/>
+					<bean id="" class="">
+						<property name="" value="" />
+			<property name="">
+				<set>
+					<value></value>
+			<property name="">
+				<map>
+					<entry key="">
+						<value></value>
+					<entry key="">
+						<bean id="" class="">
+							<property name="" value="" />
+			<property name="">
+				<props>
+					<prop key=""></prop>
+	-->
+	
+	<!-- setter injection -->
+	<bean id="company" class="_01.model.Company">
+		<property name="id" value="10" />
+		<property name="name" value="Google" />
+		<property name="address" value="x street y location US" />
+	</bean>
+	
+	<!-- constructor injection -->
+	<bean id="company2" class="_01.model.Company">
+		<constructor-arg type="int">
+			<value>11</value>
+		</constructor-arg>
+		<constructor-arg value="Arçelik"/>
+		<constructor-arg>
+			<value>y caddesi z sokak İstanbul</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="job" class="_01.model.Job">
+		<property name="id" value="101" />
+		<property name="company" ref="company2" />
+		<property name="location" value="New York" />
+		<property name="position" value="Software Developer" />
+	</bean>
+
+</beans>
