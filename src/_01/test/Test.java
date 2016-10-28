@@ -1,4 +1,4 @@
-package _01.collection.test;
+package _01.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,11 +10,11 @@ import _01.model.Job;
 import _01.dao.JobDAO;
 import _01.service.JobService;
 
-public class CollectionInjectionTest {
+public class Test {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("01.inject.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("01.xmlBased.xml");
 
 		Job personBean = context.getBean("job", Job.class);
 		System.out.println(personBean);
