@@ -67,5 +67,14 @@
 		<value>Employye-11</value>
 		<value>Employye-12</value>
 	</util:list>
+	
+	<bean id="ConfigWithSpel" class="_01.config.ConfigWithSpel"/>
+	
+	<!-- SPEL -->
+	<bean id="company3" class="_01.model.Company">
+		<property name="id" value="#{ConfigWithSpel.id}"/>
+		<property name="name" value="#{ConfigWithSpel.companyName}"/>
+		<property name="address" value="#{ConfigWithSpel.address}"/>
+	</bean>
 
 </beans>
