@@ -18,27 +18,27 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		
-		Company employee = applicationContext.getBean("getCompany",Company.class);
+		Company employee = ctx.getBean("getCompany",Company.class);
 
 		System.out.println(employee);
 		
-		SpringAwarenessWriter springAwarenessWriter = applicationContext.getBean("springAwarenessWriter", SpringAwarenessWriter.class);
+		SpringAwarenessWriter springAwarenessWriter = ctx.getBean("springAwarenessWriter", SpringAwarenessWriter.class);
 		
 		springAwarenessWriter.log();
 		
-		BeanCreationLifecycleWriter bean = applicationContext.getBean("lifecycleCreation", BeanCreationLifecycleWriter.class);
+		BeanCreationLifecycleWriter bean = ctx.getBean("lifecycleCreation", BeanCreationLifecycleWriter.class);
 		
 		System.out.println(bean);
 		
-		BeanDestructionLifecycleWriter beanDestruction = applicationContext.getBean("lifecycle", BeanDestructionLifecycleWriter.class);
+		BeanDestructionLifecycleWriter beanDestruction = ctx.getBean("lifecycleDestruction", BeanDestructionLifecycleWriter.class);
 
 		System.out.println(beanDestruction);
 		
-		getInstantiatedSigletons(applicationContext);
+		getInstantiatedSigletons(ctx);
 		
-		((AnnotationConfigApplicationContext) applicationContext).close();
+		((AnnotationConfigApplicationContext) ctx).close();
 
 	}
 	

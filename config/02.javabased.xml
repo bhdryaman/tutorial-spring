@@ -18,9 +18,15 @@
 			<property name="property1" value="test property" />
 		</bean>
 		
-		<bean id="lifecycle" class="_02.model.BeanDestructionLifecycleWriter"
+		<bean id="lifecycleDestruction" class="_02.model.BeanDestructionLifecycleWriter"
 			destroy-method="testDestroyMethod">
 			<property name="property1" value="myProperty" />
+		</bean>
+		
+		<bean id="messageSource"
+			class="org.springframework.context.support.ResourceBundleMessageSource">
+			<property name="basename" value="locale/springMessages" />
+			<property name="defaultEncoding" value="UTF-8" />
 		</bean>
 
 </beans>
