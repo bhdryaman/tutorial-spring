@@ -12,24 +12,25 @@ public class SpringAwarenessWriter implements BeanNameAware, BeanClassLoaderAwar
 
 	@Override
 	public void setBeanName(String name) {
-		System.out.println("--- setBeanName()");
+		System.out.println("--- _02.awareness.SpringAwarenessWriter.setBeanName("+name+")");
 		this.beanName = name;
 	}
 
 	@Override
 	public void setBeanClassLoader(ClassLoader classLoader) {
-		System.out.println("--- class loader:" + classLoader.getClass());
+		System.out.println("--- _02.awareness.SpringAwarenessWriter.setBeanClassLoader()"
+				+ "\n---\tclass loader:" + classLoader.getClass());
 
 	}
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		System.out.println("--- setApplicationContext()");
+		System.out.println("--- _02.awareness.SpringAwarenessWriter.setApplicationContext()");
 		System.out.println("---\t"+applicationContext.getDisplayName());
 	}
 	
 	public void log() {
-		System.out.println("--- Bean[" + beanName + "] information log...");
+		System.out.println("--- _02.awareness.SpringAwarenessWriter.log()\n\tBean[" + beanName + "] log...");
 	}
 
 }

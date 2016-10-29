@@ -30,5 +30,5 @@
 		</bean>
 		
 		<bean id="messageEventListener" class="_02.listener.MessageEventListener" />
-
+		
 </beans>

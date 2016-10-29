@@ -28,15 +28,7 @@ public class Test {
 		
 		springAwarenessWriter.log();
 		
-		BeanCreationLifecycleWriter bean = ctx.getBean("lifecycleCreation", BeanCreationLifecycleWriter.class);
-		
-		System.out.println(bean);
-		
-		BeanDestructionLifecycleWriter beanDestruction = ctx.getBean("lifecycleDestruction", BeanDestructionLifecycleWriter.class);
-
-		System.out.println(beanDestruction);
-		
-		getInstantiatedSigletons(ctx);
+		//getInstantiatedSigletons(ctx);
 		
 		((AnnotationConfigApplicationContext) ctx).close();
 

@@ -11,7 +11,7 @@ public class MessageService implements MessageSourceAware {
 
 	@Override
 	public void setMessageSource(MessageSource messageSource) {
-		System.out.println("~~~\tsetMessageSource()");
+		System.out.println("~~~ _02.service.MessageService.setMessageSource()");
 		this.messageSource = messageSource;
 	}
 

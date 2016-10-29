@@ -12,7 +12,9 @@ import _02.model.Company;
 
 @Configuration
 @PropertySource(value = "company.properties")
-@ComponentScan(basePackages = "_02.model _02.service")
+@ComponentScan(basePackages = "_02.model "
+		+ "_02.service "
+		+ "_02.awareness")
 @ImportResource(value = "02.javabased.xml")
 public class AppConfig {
 

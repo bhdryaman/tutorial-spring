@@ -18,26 +18,26 @@ public class BeanDestructionLifecycleWriter implements DisposableBean {
 
 	@PreDestroy
 	public void preDestroyTestMethod() {
-		System.out.println("\t%%% PreDestroy...");
+		System.out.println("%%% _02.model.BeanDestructionLifecycleWriter.PreDestroy()...");
 	}
 
 	@PreDestroy
 	public void preDestroyTestMethod2() {
-		System.out.println("\t%%% PreDestroy 2...");
+		System.out.println("%%% _02.model.BeanDestructionLifecycleWriter.PreDestroy2()...");
 	}
 
 	@Override
 	public void destroy() throws Exception {
-		System.out.println("\t%%% DisposableBean - destroy method");
+		System.out.println("%%% _02.model.BeanDestructionLifecycleWriter.destroy()... DisposableBean");
 	}
 
 	public void testDestroyMethod() {
-		System.out.println("\t%%% testDestroyMethod()");
+		System.out.println("%%% _02.model.BeanDestructionLifecycleWriter.testDestroyMethod()");
 	}
 
 	@Override
 	public String toString() {
-		return "\t%%% BeanDestructionLifecycleWriter [property1=" + property1 + "]";
+		return "%%% _02.model.BeanDestructionLifecycleWriter.BeanDestructionLifecycleWriter [property1=" + property1 + "]";
 	}
 
 }

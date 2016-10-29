@@ -19,13 +19,14 @@ public class MessageTest {
 
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		
+		// From context
 		String messageEN = ctx.getMessage("employee.information", 
 				new Object[] { "91", "5000", "$" }, Locale.US);
 
-		// From context
 		String messageTR = ctx.getMessage("employee.information", 
 				new Object[] { "91", "5000", "TL" }, new Locale("tr", "TR"));
-        String noMessage = ctx.getMessage("customer",null, "guest" ,Locale.UK );
+		
+        String noMessage = ctx.getMessage("nonemployee",null, "guest" ,Locale.UK );
 
 		System.out.println(messageEN);
 		System.out.println(messageTR);
