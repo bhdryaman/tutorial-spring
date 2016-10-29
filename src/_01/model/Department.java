@@ -1,11 +1,8 @@
 package _01.model;
 
 import java.util.List;
-
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component("departmentAnnotation")
 public class Department {

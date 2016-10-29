@@ -3,11 +3,9 @@ package _02.test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import _02.awareness.SpringAwarenessWriter;
 import _02.configuration.AppConfig;
 import _02.model.BeanCreationLifecycleWriter;
 import _02.model.BeanDestructionLifecycleWriter;
-import _02.model.Company;
 
 public class LifeCycleTest {
 

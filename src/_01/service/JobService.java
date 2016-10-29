@@ -2,9 +2,8 @@ package _01.service;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
 
 import _01.dao.JobDAO;
 

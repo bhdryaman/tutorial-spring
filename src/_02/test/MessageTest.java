@@ -1,14 +1,9 @@
 package _02.test;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
-
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 
 import _02.configuration.AppConfig;
 import _02.service.MessageService;

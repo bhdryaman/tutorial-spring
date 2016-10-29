@@ -10,8 +10,6 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 import _02.configuration.AppConfig;
 import _02.model.Company;
-import _02.model.BeanDestructionLifecycleWriter;
-import _02.model.BeanCreationLifecycleWriter;
 import _02.awareness.SpringAwarenessWriter;
 
 public class Test {
