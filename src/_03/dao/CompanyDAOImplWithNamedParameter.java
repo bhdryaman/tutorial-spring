@@ -46,7 +46,7 @@ public class CompanyDAOImplWithNamedParameter implements CompanyDAO {
 		SqlParameterSource selectParams = new MapSqlParameterSource().addValue("id", id);
 
 		Company company = namedParameterJdbcTemplate.queryForObject(SELECT_BYID, selectParams, new CompanyRowMapper());
-		System.out.println("Company is found... : "+company);
+		System.out.println("Company is found... : " + company);
 		
 		return company;
 	}
@@ -59,7 +59,7 @@ public class CompanyDAOImplWithNamedParameter implements CompanyDAO {
 		params.put("name", company.getName());
 
 		namedParameterJdbcTemplate.update(INSERT_COMPANY, params);
-		System.out.println("Company inserted.... : "+company);
+		System.out.println("Company inserted.... : " + company);
 		
 	}
 

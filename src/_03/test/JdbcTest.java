@@ -16,7 +16,8 @@ public class JdbcTest {
 		
 		// CompanyService compService = context.getBean("companyServiceWithJdbc", CompanyService.class);
 		// CompanyService compService = context.getBean("companyServiceWithJdbcTemplate", CompanyService.class);
-		CompanyService compService = context.getBean("companyServiceWithJdbcNamedParameter", CompanyService.class);
+		// CompanyService compService = context.getBean("companyServiceWithJdbcNamedParameter", CompanyService.class);
+		CompanyService compService = context.getBean("companyServiceWithJPA", CompanyService.class);
 
 		compService.delete(1);
 		compService.delete(2);

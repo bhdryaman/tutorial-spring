@@ -14,6 +14,11 @@
 			<value>jdbc.properties</value>
 		</property>
 	</bean>
+	
+	<bean id="entityManagerFactoryId"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="SpringJPA_PU"></property>
+	</bean>
 
 	<bean id="dataSourceId"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -23,6 +28,7 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 	
+	<!-- Company DAO Implementation Variations  -->
 	<bean id="companyDAOImplWithJdbc" class="_03.dao.CompanyDAOImplWithJdbc">
 		<property name="dataSource" ref="dataSourceId"/>
 	</bean>
@@ -35,6 +41,11 @@
 		<property name="dataSource" ref="dataSourceId"/>
 	</bean>
 	
+	<bean id="companyDAOImplWithJPA" class="_03.dao.CompanyDAOImplWithJPA">
+		<property name="entityManagerFactory" ref="entityManagerFactoryId"/>
+	</bean>
+	
+	<!-- Company Service Variations  -->
 	<bean id="companyServiceWithJdbc" class="_03.service.CompanyService">
 		<constructor-arg ref="companyDAOImplWithJdbc"/>
 	</bean>
@@ -45,6 +56,10 @@
 	
 	<bean id="companyServiceWithJdbcNamedParameter" class="_03.service.CompanyService">
 		<constructor-arg ref="companyDAOImplWithJdbcNamedParameter"/>
+	</bean>
+	
+	<bean id="companyServiceWithJPA" class="_03.service.CompanyService">
+		<constructor-arg ref="companyDAOImplWithJPA"/>
 	</bean>
 
 </beans>
