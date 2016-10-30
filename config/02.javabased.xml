@@ -9,8 +9,7 @@
 			http://www.springframework.org/schema/context
 			http://www.springframework.org/schema/context/spring-context.xsd
 			http://www.springframework.org/schema/util
-			http://www.springframework.org/schema/util/spring-util.xsd
-        ">
+			http://www.springframework.org/schema/util/spring-util.xsd">
         
         <bean id="springAwarenessWriter" class="_02.awareness.SpringAwarenessWriter" />
         

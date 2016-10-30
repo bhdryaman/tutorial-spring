@@ -24,10 +24,12 @@ public class CompanyDAOImplWithJdbcTemplate implements CompanyDAO {
 	public List<Company> getAllCompanies() {
 
 		List<Company> companyList = jdbcTemplate.query(SELECT_ALL, new CompanyRowMapper());
+		
 		System.out.println("getAllCompanies...");
 		for (Company company : companyList) {
 			System.out.println(company);
 		}
+		
 		return companyList;
 
 	}
@@ -38,6 +40,7 @@ public class CompanyDAOImplWithJdbcTemplate implements CompanyDAO {
 		Object[] selectParams = new Object[]{id};
 		Company company = jdbcTemplate.queryForObject(SELECT_BYID, selectParams, new CompanyRowMapper());
 		System.out.println("Company is found... : "+company);
+		
 		return company;
 
 	}

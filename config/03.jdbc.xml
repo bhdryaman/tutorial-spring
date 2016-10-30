@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd
-http://www.springframework.org/schema/context
-http://www.springframework.org/schema/context/spring-context.xsd">
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+        	http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -22,7 +23,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 	
-	<bean id="companyDAOImpl" class="_03.dao.CompanyDAOImplWithJdbc">
+	<bean id="companyDAOImplWithJdbc" class="_03.dao.CompanyDAOImplWithJdbc">
 		<property name="dataSource" ref="dataSourceId"/>
 	</bean>
 	
@@ -30,12 +31,20 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		<property name="dataSource" ref="dataSourceId"/>
 	</bean>
 	
+	<bean id="companyDAOImplWithJdbcNamedParameter" class="_03.dao.CompanyDAOImplWithNamedParameter">
+		<property name="dataSource" ref="dataSourceId"/>
+	</bean>
+	
 	<bean id="companyServiceWithJdbc" class="_03.service.CompanyService">
-		<constructor-arg ref="companyDAOImpl"/>
+		<constructor-arg ref="companyDAOImplWithJdbc"/>
 	</bean>
 	
 	<bean id="companyServiceWithJdbcTemplate" class="_03.service.CompanyService">
 		<constructor-arg ref="companyDAOImplWithJdbcTemplate"/>
+	</bean>
+	
+	<bean id="companyServiceWithJdbcNamedParameter" class="_03.service.CompanyService">
+		<constructor-arg ref="companyDAOImplWithJdbcNamedParameter"/>
 	</bean>
 
 </beans>

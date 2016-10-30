@@ -15,7 +15,8 @@ public class JdbcTest {
 		ApplicationContext context = new ClassPathXmlApplicationContext("03.jdbc.xml");
 		
 		// CompanyService compService = context.getBean("companyServiceWithJdbc", CompanyService.class);
-		CompanyService compService = context.getBean("companyServiceWithJdbcTemplate", CompanyService.class);
+		// CompanyService compService = context.getBean("companyServiceWithJdbcTemplate", CompanyService.class);
+		CompanyService compService = context.getBean("companyServiceWithJdbcNamedParameter", CompanyService.class);
 
 		compService.delete(1);
 		compService.delete(2);
