@@ -2,14 +2,14 @@ package _03.service;
 
 import java.util.List;
 
-import _03.dao.CompanyDAOImpl;
+import _03.dao.CompanyDAO;
 import _03.model.Company;
 
 public class CompanyService {
 
-	private CompanyDAOImpl companyDAOImpl;
+	private CompanyDAO companyDAOImpl;
 
-	public CompanyService(CompanyDAOImpl companyDAOImpl) {
+	public CompanyService(CompanyDAO companyDAOImpl) {
 		super();
 		this.companyDAOImpl = companyDAOImpl;
 	}

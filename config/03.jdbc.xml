@@ -7,7 +7,6 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
-
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
@@ -23,12 +22,20 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 	
-	<bean id="companyDAOImpl" class="_03.dao.CompanyDAOImpl">
+	<bean id="companyDAOImpl" class="_03.dao.CompanyDAOImplWithJdbc">
 		<property name="dataSource" ref="dataSourceId"/>
 	</bean>
 	
-	<bean id="companyService" class="_03.service.CompanyService">
+	<bean id="companyDAOImplWithJdbcTemplate" class="_03.dao.CompanyDAOImplWithJdbcTemplate">
+		<property name="dataSource" ref="dataSourceId"/>
+	</bean>
+	
+	<bean id="companyServiceWithJdbc" class="_03.service.CompanyService">
 		<constructor-arg ref="companyDAOImpl"/>
-	</bean> 
+	</bean>
+	
+	<bean id="companyServiceWithJdbcTemplate" class="_03.service.CompanyService">
+		<constructor-arg ref="companyDAOImplWithJdbcTemplate"/>
+	</bean>
 
 </beans>

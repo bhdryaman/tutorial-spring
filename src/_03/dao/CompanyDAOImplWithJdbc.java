@@ -6,12 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.sql.DataSource;
 
 import _03.model.Company;
 
-public class CompanyDAOImpl implements CompanyDAO {
+public class CompanyDAOImplWithJdbc implements CompanyDAO {
 
 	private DataSource dataSource;
 
@@ -45,11 +44,10 @@ public class CompanyDAOImpl implements CompanyDAO {
 				companyList.add(company);
 			}
 
-			System.out.println("getAllCompanys...");
-
+			System.out.println("getAllCompanies...");
 			if (companyList != null) {
-				for (Company p : companyList) {
-					System.out.println(p);
+				for (Company comp : companyList) {
+					System.out.println(comp);
 				}
 			}
 
@@ -142,6 +140,8 @@ public class CompanyDAOImpl implements CompanyDAO {
 			ps.setInt(1, id);
 			ps.executeUpdate();
 			ps.close();
+			
+			System.out.println("Company is deleted.... : " + id);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
