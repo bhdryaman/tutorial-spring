@@ -15,7 +15,7 @@
 		</property>
 	</bean>
 	
-	<bean id="entityManagerFactoryId"
+	<bean id="entityManagerFactoryId" autowire-candidate="false"
 		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="SpringJPA_PU"></property>
 	</bean>
@@ -61,5 +61,36 @@
 	<bean id="companyServiceWithJPA" class="_03.service.CompanyService">
 		<constructor-arg ref="companyDAOImplWithJPA"/>
 	</bean>
+	
+	<bean id="entityManagerFactoryId2"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSourceId" />
+		<!-- <property name="packagesToScan" value="_03.model" />  -->
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+		<property name="jpaVendorAdapter">
+			<bean
+				class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter" />
+		</property>
+		<!-- <property name="persistenceUnitName" value="SpringJPA_PU" /> -->
+		<property name="jpaProperties">
+			<props>
+				<!--
+				<prop key="javax.persistence.jdbc.driver">${jdbc.driverClassName}</prop>
+				<prop key="javax.persistence.jdbc.url">${jdbc.url}</prop>
+				<prop key="javax.persistence.jdbc.user">${jdbc.username}</prop>
+				<prop key="javax.persistence.jdbc.password">${jdbc.password}</prop>
+				-->
+				<prop key="eclipselink.ddl-generation">drop-and-create-tables</prop>
+				<!-- <prop key="eclipselink.logging.level">FINE</prop> -->
+			</props>
+		</property>
+		<property name="jpaPropertyMap">
+			<map>
+				<entry key="eclipselink.weaving" value="false" />
+			</map>
+		</property>
+	</bean>
+	
+	<context:component-scan base-package="_03.dao _03.service"/>
 
 </beans>
